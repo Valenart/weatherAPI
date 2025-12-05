@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CardContent, AppBar, Button, Grid, Container, Divider } from '@mui/material';
 import Text from './components/components.jsx';
-import { Box, display } from '@mui/system';
+import { Box } from '@mui/system';
 import './App.css';
 
 function App() {
@@ -68,10 +68,8 @@ function App() {
         const lon = getLocation.data.lon;
 
         const dataTime = new Date();
-        // console.log(dataTime);
-        // console.log(dataTime.toLocaleDateString('pt-br'));
-        // console.log(dataTime.getHours());
-        // console.log(dataTime.getMinutes());
+        console.log(lat);
+        console.log(lon);
 
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&appid=${apiKey}`);
         console.log(response.data);
@@ -165,7 +163,7 @@ function App() {
             }
           }}
         >
-          {theme ? '☀️' : '🌑'}
+          {theme == true ? '☀️' : '🌑'}
         </Button>
 
       </AppBar >
